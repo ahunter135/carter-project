@@ -28,14 +28,17 @@ export class HomePage implements OnInit {
       if(password.length < 6) {
         valid = false;
       }
-      // POST DATA HERE 
-      // This won't actually POST because i'm not hosting the server yet. So comment it out.
-      //let response = await this.httpService.login({email: email, password: password});
 
-      // Got a success, move on now
       if(valid) {
-        this.router.navigateByUrl("welcome");
+        let response = await this.httpService.login({email: email, password: password});
+        console.log(response);
+        if (response.status == 200) {
+          this.router.navigateByUrl("welcome");
+        }
       }
+      
+      // Got a success, move on now
+      
     } while(valid = false);
   }
 }

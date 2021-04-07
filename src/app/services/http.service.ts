@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from "@angular/comm
   providedIn: 'root'
 })
 export class HttpService {
-  base = "put base endpoint here";
+  base = "http://carter-project.herokuapp.com/";
   constructor(private http: HttpClient) { }
 
   /**
@@ -20,6 +20,7 @@ export class HttpService {
   private async post(endpoint, data) {
     let url = this.base + endpoint;
     let headers = {};
+    headers = { "Content-Type": "application/json", 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT', "Accept": "application/json" };
     let config = <any>{
       url: url,
       method: "POST",

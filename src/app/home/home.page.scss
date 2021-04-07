@@ -1,0 +1,32 @@
+.emailButton {
+    color: black;
+    font: 20px Arial;
+    position: relative;
+    top: 20%;
+    left:10px;
+    background-color:  rgb(229, 236, 227);
+    width: 250px;
+    --placeholder-opacity: 30%;
+}
+
+.passwordButton {
+    color: black;
+    font: 20px Arial;
+    position: relative;
+    top: 21%;
+    left:10px;
+    background-color: rgb(229, 236, 227);
+    width:250px;
+    --placeholder-opacity: 30%;
+}
+
+.loginButton {
+    position:absolute;
+    width: 200px;
+    left: 37px;
+    top: 40%;
+    --background: rgb(70, 106, 139);
+    font: 18px Arial;
+}
+
+

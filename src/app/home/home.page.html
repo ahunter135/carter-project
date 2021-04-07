@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-button shape="round" fill="outline" (click)="changeMyName(email, password)">Login</ion-button>
-  <ion-input placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
-  <ion-input placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+  <ion-input class="emailButton" placeholder="Email" type="email" [(ngModel)]="email"></ion-input>
+  <ion-input class="passwordButton" placeholder="Password" type="password" [(ngModel)]="password"></ion-input>
+  <ion-button class="loginButton" shape="round" (click)="login(email, password)">Login</ion-button>
 </ion-content>

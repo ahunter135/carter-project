@@ -12,17 +12,27 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
-  changeMyName(email, password) {
+  login(email, password) {
     /*
     Do login logic here, then move on
     */
     //Check is email is email
+    let valid = false;
+    do {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if(re.test(String(email).toLowerCase())) {
+        valid = true;
+      }
+      //Validate password is 6 or more characters
+      if(password.length < 6) {
+        valid = false;
+      }
+      // POST DATA HERE 
 
-    //Validate password is 6 or more characters
-
-    // POST DATA HERE 
-
-    // Got a success, move on now
-    this.router.navigateByUrl("welcome");
+      // Got a success, move on now
+      if(valid) {
+        this.router.navigateByUrl("welcome");
+      }
+    } while(valid = false);
   }
 }

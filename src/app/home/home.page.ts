@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
   ngOnInit() {
   }
 
-  login(email, password) {
+  async login(email, password) {
     /*
     Do login logic here, then move on
     */
@@ -33,3 +34,15 @@ export class HomePage implements OnInit {
     }
   }
 }
+
+/**
+ * Notes:
+ * 
+ * You do not need a do/while loop. Delete that.
+ * 
+ * You missed a catch, what if the user did not type a email or a password? I get an error if I hit login without typing anything.
+ * 
+ * You can see errors by opening your dev tools in the browser tab that we are running in. Just google how to open dev tools. Typically you can just right click the page and 
+ * choose "Inspect Element" and navigate to console.
+ * 
+ */

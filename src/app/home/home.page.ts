@@ -18,21 +18,18 @@ export class HomePage implements OnInit {
     */
     //Check is email is email
     let valid = false;
-    do {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if(re.test(String(email).toLowerCase())) {
-        valid = true;
-      }
-      //Validate password is 6 or more characters
-      if(password.length < 6) {
-        valid = false;
-      }
-      // POST DATA HERE 
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(re.test(String(email).toLowerCase()) &&  password.length >= 6) {
+      valid = true;
+    }  else {
+      alert("Bad boy.");
+    }
+    //Validate password is 6 or more characters
+    // POST DATA HERE 
 
-      // Got a success, move on now
-      if(valid) {
-        this.router.navigateByUrl("welcome");
-      }
-    } while(valid = false);
+    // Got a success, move on now
+    if(valid) {
+      this.router.navigateByUrl("welcome");
+    }
   }
 }

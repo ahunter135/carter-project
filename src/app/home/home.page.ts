@@ -27,20 +27,22 @@ export class HomePage implements OnInit {
     }
     //Validate password is 6 or more characters
     // POST DATA HERE 
-
-    // Got a success, move on now
     if(valid) {
-      this.router.navigateByUrl("welcome");
+      let response = await this.httpService.login({email: email, password: password});
+      console.log(response);
+      if (response.status == 200) {
+        this.router.navigateByUrl("welcome");
+      }
     }
+
   }
 }
 
 /**
  * Notes:
  * 
- * You do not need a do/while loop. Delete that.
  * 
- * You missed a catch, what if the user did not type a email or a password? I get an error if I hit login without typing anything.
+ * You missed a catch, what if the user did not type a password? I get an error if I hit login without typing anything.
  * 
  * You can see errors by opening your dev tools in the browser tab that we are running in. Just google how to open dev tools. Typically you can just right click the page and 
  * choose "Inspect Element" and navigate to console.
